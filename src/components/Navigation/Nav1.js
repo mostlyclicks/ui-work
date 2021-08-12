@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 
 const Nav1 = (props) => {
@@ -8,6 +8,7 @@ const Nav1 = (props) => {
   return (
     <Fragment>
       <StyledUl>
+        <header>&times;</header>
         {navLinks.map((navLink, index) => (
           <li key={index}><a href={navLink.urlPath}>{navLink.linkName}</a></li>
         ))}
@@ -40,9 +41,19 @@ const StyledUl =  styled.ul`
      text-align:center;
    }
  }
- 
- 
 
+ header {
+   display:flex;
+   font-size:2rem;
+   font-weight:bold;
+   justify-content:flex-end;
+   
+   width:100%;
+   padding-right:60px;
+   padding-top:15px;
+   
+ }
+ 
  @media (min-width:768px) {
    flex-direction:row;
    li {
@@ -52,7 +63,9 @@ const StyledUl =  styled.ul`
        padding:1rem 2rem;
      }
    }
-   
+   header {
+     display:none;
+   }
  }
 
 `
